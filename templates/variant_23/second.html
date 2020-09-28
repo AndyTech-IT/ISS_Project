@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %} {{costomer.CNAME}} {% endblock %}
+
+{% block content %}
+
+<style>
+    .back {
+        width: 50em;
+        height: 100%;
+    }
+    .back table {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-size: 1.5em;
+    }
+    .left {
+        border-right: chocolate solid;
+    }
+    .right {
+        border-left: chocolate solid;
+    }
+    th, td {
+        border-bottom: chocolate solid;
+    }
+    table {
+        border-left: chocolate solid;
+        border-right: chocolate solid;
+        border-top: chocolate solid;
+    }
+</style>
+
+<div class="back">
+    {% if orders_list %}
+        <table >
+            <tr>
+                <th colspan="3">{{costomer.CNAME}} - список заказов </th>
+            </tr>
+            <tr>
+                <th class="left"> Номер заказа </th>
+                <th> Сумма заказа </th>
+                <th class="right"> Дата  заказа </th>
+            </tr>
+            {% for order in orders_list %}
+                <tr>
+                    <td class="left">{{order.ONUM}}</td>
+                    <td>{{order.AMT}}</td>
+                    <td class="right">{{order.ODATE}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h1> Заказы не найдены </h1>
+    {% endif %}
+</div>
+
+{% endblock %}

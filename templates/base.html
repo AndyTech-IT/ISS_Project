@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Вариант 23 {% endblock %}</title>
+</head>
+<body>
+    <style>
+        body {
+            background: rgba(231, 168, 123, 0.568);
+        }
+        .container {
+            display: block;
+            margin: auto;
+            width: 50em;
+            height: 100%;
+        }
+
+        .back {
+            background: burlywood;
+            width: 30em;
+            height: 15em;
+            border-radius: 2em;
+            padding: 2em;
+            margin: auto;
+            margin-top: 10em;
+            text-align: center;
+            border: chocolate outset 10px;
+            position: relative;
+            justify-content: center;
+        }
+    </style>
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+    
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %} Ввод имени заказчика {% endblock %}
+
+{% block content %}
+
+<style>
+    .back input {
+        font-size: 2em;
+        margin-top: 3em;
+        text-align: center;
+    }
+    .back input[type='submit'] {
+        font-size: 1.5em;
+        border-radius: 1em;
+        width: 10em;
+        height: 2em;
+        border: chocolate inset 5px;
+        background: burlywood;
+        position: absolute;
+        bottom: 1em;
+        left: calc(50% - 5em);
+    }
+    .back input[type='submit']:hover {
+        border: chocolate outset 5px;
+        background: wheat;
+    }
+    .back .head h2{
+        text-align: center;
+        text-transform: uppercase;
+        margin: 0;
+        background: burlywood;
+        position: absolute;
+        padding: 0 10px;
+    }
+    .back .head{
+        margin: 0;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    .head::before {
+        content: "";
+        border-radius: 4px;
+        background: chocolate;
+        width: 100%;
+        height: 5px;
+        display: block;
+        position: absolute;
+        top: calc(50% + 12px)
+    }
+</style>
+
+<form class="back" action="orders/" method="POST"> 
+
+    {% csrf_token %}
+    <div class="head">
+        <h2>Введите имя заказчика</h2>
+    </div>
+    <input type="text" required placeholder="Имя" name="name">
+    <input type="submit"> 
+</form>
+
+{% endblock %}
