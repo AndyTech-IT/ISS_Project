@@ -9,7 +9,9 @@ def first(request):
 
 def second(request):
     """
-    23.	Вывести список номеров заказов сопровождающихся именем заказчика, который создавал эти заказы.
+    23.	Вывести список номеров заказов 
+        сопровождающихся именем заказчика, 
+        который создавал эти заказы.
     """
     customer_name = request.POST['name']
     try:
@@ -19,4 +21,14 @@ def second(request):
 
     orders_list = Orders.objects.filter(CNUM__exact=costomer.CNUM)
 
-    return render(request, 'variant_23/second.html', {'costomer': costomer, 'orders_list': orders_list})
+    summ = 0
+    for order in orders_list:
+        summ += order.AMT
+
+    return render(request, 
+        'variant_23/second.html', 
+        {
+            'costomer': costomer, 
+            'orders_list': orders_list, 
+            'summ': summ
+        })
